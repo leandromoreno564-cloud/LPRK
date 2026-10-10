@@ -4,7 +4,8 @@
   "description": "LPRK - tienda de ropa con Node.js, Express y MySQL (Laragon)",
   "scripts": {
     "start": "node server.js",
-    "init-db": "node database/init.js"
+    "init-db": "node database/init.js",
+    "build-demo": "node scripts/build-demo.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",

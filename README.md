@@ -30,6 +30,8 @@ LPRK/
     db.js              Conexión MySQL y creación de tablas
     middleware.js      Login por token y manejo de errores
     routes/            auth, products, orders, stats
+  demo/                API simulada de la demo (npm run build-demo)
+  docs/                Demo lista para GitHub Pages (se genera sola)
   public/
     index.html         Tienda
     admin.html         Panel de administración
@@ -45,6 +47,15 @@ LPRK/
         menu.js        MENÚ DEL BOT (árbol de grupos y respuestas)
         chat.js        Interfaz y lógica del bot
 ```
+
+## Demo online (GitHub Pages)
+
+La carpeta `docs/` es una versión de demostración que funciona sin servidor ni MySQL: los productos y reservas se guardan en el navegador de cada visitante. Sirve para mostrar cómo se ve la tienda.
+
+Para publicarla: en GitHub entrá a **Settings > Pages**, en *Branch* elegí `main` y la carpeta `/docs`, y guardá. En uno o dos minutos queda en `https://TU_USUARIO.github.io/LPRK/`.
+Clave del panel en la demo: `admin123`.
+
+Si cambiás algo en `public/`, regenerá la demo con `npm run build-demo` y subí los cambios (`demo/demo-api.js` es la API simulada).
 
 ## Versión móvil
 

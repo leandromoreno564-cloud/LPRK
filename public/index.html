@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LPRK</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/store.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/reserve.css">
+</head>
+<body>
+  <header>
+    <h1 id="shopName"></h1>
+    <div class="header-actions">
+      <a class="btn wa" id="waTop" target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn outline" href="/admin.html">Admin</a>
+    </div>
+  </header>
+
+  <main>
+    <div id="cats" class="cats"></div>
+    <div id="grid" class="grid"></div>
+  </main>
+
+  <!-- Asistente -->
+  <button id="chatBtn" type="button" aria-label="Abrir chat">Chat</button>
+  <div id="chat">
+    <div class="chat-head">
+      <span>Asistente</span>
+      <div class="chat-head-actions">
+        <button id="chatMenu" type="button">Menú</button>
+        <button id="chatClose" type="button">Cerrar</button>
+      </div>
+    </div>
+    <div id="msgs"></div>
+    <form id="chatForm">
+      <label class="attach" title="Enviar una foto">Foto<input id="chatImage" type="file" accept="image/*" hidden></label>
+      <input id="chatInput" placeholder="Escribí tu consulta..." autocomplete="off">
+      <button class="btn" type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Ventana de reserva / comprobante -->
+  <dialog id="reserveDialog"></dialog>
+
+  <script type="module" src="js/store.js"></script>
+</body>
+</html>

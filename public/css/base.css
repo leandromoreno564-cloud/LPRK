@@ -1,0 +1,63 @@
+/* Variables, reset, botones y campos: compartido por tienda y admin */
+:root {
+  --bg: #faf8f5;
+  --card: #fff;
+  --tx: #1d1d1b;
+  --mu: #6b6b66;
+  --ac: #1d1d1b;
+  --acx: #fff;
+  --bd: #e6e2db;
+  --wa: #25d366;
+  --danger: #c0392b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #171716;
+    --card: #222220;
+    --tx: #f2efe9;
+    --mu: #a09d95;
+    --ac: #f2efe9;
+    --acx: #171716;
+    --bd: #383835;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--tx);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+button, input, select { font: inherit; color: inherit; }
+
+input, select {
+  width: 100%;
+  padding: 9px;
+  background: var(--bg);
+  border: 1px solid var(--bd);
+  border-radius: 8px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 9px 14px;
+  background: var(--ac);
+  color: var(--acx);
+  border: 0;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn.outline { background: transparent; color: var(--tx); border: 1px solid var(--bd); }
+.btn.wa { background: var(--wa); color: #fff; }
+
+/* ===== Móviles ===== */
+html { -webkit-text-size-adjust: 100%; }
+img { max-width: 100%; }
+@media (max-width: 600px) {
+  /* 16px evita el zoom automático de iOS al tocar un campo */
+  input, select { font-size: 16px; }
+  /* Botones cómodos para el dedo */
+  .btn { min-height: 44px; }
+}

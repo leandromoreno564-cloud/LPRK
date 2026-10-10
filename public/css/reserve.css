@@ -1,0 +1,67 @@
+/* Ventana de reserva y comprobante */
+#reserveDialog {
+  width: min(420px, calc(100% - 24px));
+  max-height: calc(100% - 24px);
+  padding: 18px;
+  background: var(--card);
+  color: var(--tx);
+  border: 1px solid var(--bd);
+  border-radius: 14px;
+  overflow: auto;
+}
+#reserveDialog::backdrop { background: rgba(0, 0, 0, .55); }
+
+.rsv-product { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+.rsv-product img, .rsv-ph {
+  flex: 0 0 84px;
+  width: 84px;
+  height: 84px;
+  object-fit: cover;
+  border-radius: 10px;
+  background: var(--bd);
+}
+.rsv-ph { display: flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 700; letter-spacing: 1px; color: var(--mu); }
+.rsv-product div { display: flex; flex-direction: column; gap: 3px; }
+.rsv-product small { color: var(--mu); }
+
+.rsv-form { display: flex; flex-direction: column; gap: 10px; }
+.rsv-total { text-align: right; font-size: 15px; }
+.rsv-total b { font-size: 20px; }
+.rsv-form .error { min-height: 1em; margin: 0; font-size: 13px; }
+.rsv-form button:disabled { opacity: .6; }
+
+.rsv-actions { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.rsv-actions.col { flex-direction: column; }
+.rsv-actions .btn { text-align: center; flex: 1; }
+.rsv-hint { margin: 12px 0 0; font-size: 13px; color: var(--mu); text-align: center; }
+.error { color: var(--danger); }
+
+/* Comprobante (siempre claro, igual que la imagen descargable) */
+.receipt {
+  padding: 18px 16px;
+  background: #fff;
+  color: #1d1d1b;
+  border: 2px dashed #1d1d1b;
+  border-radius: 10px;
+}
+.receipt-brand { text-align: center; font-size: 24px; font-weight: 700; }
+.receipt-title { text-align: center; font-size: 12px; font-weight: 600; letter-spacing: 1px; color: #6b6b66; }
+.receipt-code { margin: 10px 0 12px; padding-bottom: 12px; border-bottom: 1px solid #e6e2db; text-align: center; font: 700 20px ui-monospace, Consolas, monospace; }
+.receipt-row { display: flex; justify-content: space-between; gap: 12px; padding: 5px 0; font-size: 14px; }
+.receipt-row span { color: #6b6b66; }
+.receipt-row b { text-align: right; }
+.receipt-row.total { margin-top: 6px; padding-top: 10px; border-top: 1px solid #e6e2db; font-size: 17px; }
+.receipt-note { margin-top: 12px; text-align: center; font-size: 12px; color: #6b6b66; }
+
+/* ===== Móviles: la ventana sube desde abajo ===== */
+@media (max-width: 600px) {
+  #reserveDialog {
+    width: 100%;
+    max-width: 100%;
+    max-height: 92dvh;
+    margin: auto 0 0;
+    padding: 16px 16px calc(16px + env(safe-area-inset-bottom, 0px));
+    border-radius: 16px 16px 0 0;
+  }
+  .rsv-actions .btn { flex-basis: 100%; }
+}

@@ -1,0 +1,59 @@
+/* Panel de administración */
+main { max-width: 1000px; margin: 0 auto; padding: 16px; }
+.box {
+  margin-bottom: 16px;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--bd);
+  border-radius: 12px;
+}
+.login { max-width: 340px; margin: 60px auto; }
+.error { color: var(--danger); }
+.topbar { display: flex; justify-content: space-between; align-items: center; }
+.topbar h2 { margin: 0; }
+.tabs { display: flex; gap: 8px; margin: 12px 0; }
+
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; }
+.stat b { display: block; font-size: 24px; }
+.stat span { color: var(--mu); font-size: 13px; }
+
+.form-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 14px; }
+th, td { padding: 8px; border-bottom: 1px solid var(--bd); text-align: left; white-space: nowrap; }
+td img { width: 40px; height: 40px; object-fit: cover; border-radius: 6px; }
+td input { width: 90px; }
+
+/* ===== Móviles ===== */
+@media (max-width: 700px) {
+  main { padding: 12px; padding-top: calc(12px + env(safe-area-inset-top, 0px)); }
+  .login { margin: 24px auto; }
+  .topbar { flex-wrap: wrap; gap: 8px; }
+  .tabs { overflow-x: auto; scrollbar-width: none; }
+  .tabs .btn { white-space: nowrap; flex: 1; }
+  .box { padding: 12px; }
+  .stat b { font-size: 20px; }
+  .form-grid button { grid-column: 1 / -1; }
+
+  /* Las tablas de productos y pedidos pasan a tarjetas (una por fila) */
+  .table-wrap:has(table.responsive) { overflow: visible; }
+  table.responsive, table.responsive tbody, table.responsive tr, table.responsive td { display: block; width: 100%; }
+  table.responsive thead { display: none; }
+  table.responsive tr { padding: 10px 0; border-bottom: 1px solid var(--bd); }
+  table.responsive td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 4px 0;
+    border: 0;
+    text-align: right;
+    white-space: normal;
+  }
+  table.responsive td::before { content: attr(data-label); color: var(--mu); font-size: 13px; text-align: left; }
+  table.responsive td:not([data-label])::before { display: none; }
+  table.responsive td:empty { display: none; }
+  table.responsive td input, table.responsive td select { width: 130px; }
+  table.responsive td .btn { width: 100%; }
+}
